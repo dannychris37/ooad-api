@@ -20,6 +20,8 @@ public class Main {
         x1.setValue(false);
         x2.setValue(true);
         x3.setValue(false);
+        System.out.println("API Started");
+        System.out.println("Testing: x1 AND x2 OR x3 with x1 = false, x2 = true, x3 = false");
         System.out.println(c.getValue());
     }
 }
