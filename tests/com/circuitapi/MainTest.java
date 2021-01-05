@@ -16,10 +16,10 @@ public class MainTest extends TestCase {
         Circuit c = new Circuit(formula);
         x1.setValue(false);
         x2.setValue(true);
-        assertEquals(false,c.getValue());
+        assertFalse(c.getValue());
         x1.setValue(true);
         x2.setValue(true);
-        assertEquals(true,c.getValue());
+        assertTrue(c.getValue());
 
     }
     public void testX1andX2orX3() {
@@ -37,11 +37,11 @@ public class MainTest extends TestCase {
         x1.setValue(false);
         x2.setValue(true);
         x3.setValue(false);
-        assertEquals(false,c.getValue());
+        assertFalse(c.getValue());
         x1.setValue(true);
         x2.setValue(false);
         x2.setValue(true);
-        assertEquals(true,c.getValue());
+        assertTrue(c.getValue());
 
     }
     public void testAlwaysTrue(){
@@ -54,8 +54,8 @@ public class MainTest extends TestCase {
         formula.add(x1);
         Circuit c = new Circuit(formula);
         x1.setValue(false);
-        assertEquals(true,c.getValue());
+        assertTrue(c.getValue());
         x1.setValue(true);
-        assertEquals(true,c.getValue());
+        assertTrue(c.getValue());
     }
 }
