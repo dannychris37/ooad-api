@@ -8,8 +8,12 @@ public class FormulaBuilder {
             case OR:
                 return new BinaryExpression(Operator.OR);
             case NOT:
-                return new UnaryExpression();
+                return new UnaryExpression(Operator.NOT);
             default: return  null;
         }
+    }
+
+    Formula getNewOperand(boolean value) {
+        return new Operand(value);
     }
 }
