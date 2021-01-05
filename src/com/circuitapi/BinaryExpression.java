@@ -18,4 +18,9 @@ public class BinaryExpression extends Expression{
         }
         return false;
     }
+
+    @Override
+    void setValue(boolean value) {
+
+    }
 }

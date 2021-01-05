@@ -13,7 +13,7 @@ public class FormulaBuilder {
         }
     }
 
-    Formula getNewOperand(boolean value) {
-        return new Operand(value);
+    Formula getNewOperand() {
+        return new Operand();
     }
 }

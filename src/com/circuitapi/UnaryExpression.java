@@ -12,4 +12,9 @@ public class UnaryExpression extends Expression{
     boolean getValue() {
         return !lhs.getValue();
     }
+
+    @Override
+    void setValue(boolean value) {
+
+    }
 }
