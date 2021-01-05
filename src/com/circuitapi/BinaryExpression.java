@@ -20,7 +20,5 @@ public class BinaryExpression extends Expression{
     }
 
     @Override
-    void setValue(boolean value) {
-
-    }
+    void setValue(boolean value) {}
 }
