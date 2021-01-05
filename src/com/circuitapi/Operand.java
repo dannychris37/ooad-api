@@ -2,9 +2,9 @@ package com.circuitapi;
 
 public class Operand extends Formula {
 
-    boolean value;
+    private boolean value;
 
-    boolean getValue() {
+    public boolean getValue() {
         return value;
     }
 

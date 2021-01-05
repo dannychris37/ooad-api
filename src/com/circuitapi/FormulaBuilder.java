@@ -1,7 +1,7 @@
 package com.circuitapi;
 
 public class FormulaBuilder {
-    Formula getFormula(Operator operator) {
+    public Formula getFormula(Operator operator) {
         switch (operator) {
             case AND:
                 return new BinaryExpression(Operator.AND);

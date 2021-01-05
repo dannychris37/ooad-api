@@ -1,6 +1,7 @@
 package com.circuitapi;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 

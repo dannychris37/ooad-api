@@ -3,17 +3,24 @@ package com.circuitapi;
 import java.util.ArrayList;
 
 public class Circuit {
-    Formula root;
+    private Formula root;
 
-    Circuit(ArrayList<Formula> formulas) {
-        root = formulas.get(0);
-        formCircuit(formulas);
+    public Circuit(ArrayList<Formula> formulas) {
+        if (!formulas.isEmpty() && (formulas.get(formulas.size()-1) instanceof Operand)) {
+            root = formulas.get(0);
+            formCircuit(formulas);
+        } else {
+            System.err.println("No formulas found!");
+            System.exit(0);
+        }
     }
 
-    Formula formCircuit(ArrayList<Formula> formulas) {
-        if (formulas.isEmpty()) {
-            return null;
-        }
+    public boolean getValue() {
+        return root.getValue();
+    }
+
+    private Formula formCircuit(ArrayList<Formula> formulas) {
+        if (formulas.isEmpty()) return null;
         Formula firstElement = formulas.remove(0);
         if(firstElement instanceof Operand) {
             return firstElement;
@@ -28,10 +35,6 @@ public class Circuit {
             }
         }
         return null;
-    }
-
-    boolean getValue() {
-        return root.getValue();
     }
 
 }

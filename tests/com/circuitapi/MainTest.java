@@ -2,7 +2,6 @@ package com.circuitapi;
 
 import junit.framework.TestCase;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainTest extends TestCase {
@@ -61,6 +60,7 @@ public class MainTest extends TestCase {
         assertTrue(c.getValue());
     }
 
+    // x1 & !(x2 | x3)
     public void testX1andNotPX2orX3P() {
         ArrayList<Formula> formula = new ArrayList<>();
         FormulaBuilder formulaBuilder = new FormulaBuilder();
@@ -88,6 +88,7 @@ public class MainTest extends TestCase {
         assertTrue(c.getValue());
     }
 
+    // !x1 & !x2
     public void testNotX1andNotX2() {
         ArrayList<Formula> formula = new ArrayList<>();
         FormulaBuilder formulaBuilder = new FormulaBuilder();

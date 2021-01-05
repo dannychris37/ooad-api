@@ -1,15 +1,15 @@
 package com.circuitapi;
 
 public class BinaryExpression extends Expression{
-    Formula rhs;
-    Operator operator;
+    protected Formula rhs;
+    private Operator operator;
 
-    BinaryExpression(Operator operator ) {
+    protected BinaryExpression(Operator operator ) {
         this.operator = operator;
     }
 
     @Override
-    boolean getValue() {
+    public boolean getValue() {
         switch (operator) {
             case AND:
                 return Boolean.logicalAnd(lhs.getValue(), rhs.getValue());
@@ -20,5 +20,5 @@ public class BinaryExpression extends Expression{
     }
 
     @Override
-    void setValue(boolean value) {}
+    public void setValue(boolean value) {}
 }

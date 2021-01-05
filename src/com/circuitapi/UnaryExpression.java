@@ -2,17 +2,17 @@ package com.circuitapi;
 
 public class UnaryExpression extends Expression{
 
-    Operator operator;
+    private Operator operator;
 
-    UnaryExpression(Operator operator) {
+    protected UnaryExpression(Operator operator) {
         this.operator = operator;
     }
 
     @Override
-    boolean getValue() {
+    public boolean getValue() {
         return !lhs.getValue();
     }
 
     @Override
-    void setValue(boolean value) {}
+    public void setValue(boolean value) {}
 }
