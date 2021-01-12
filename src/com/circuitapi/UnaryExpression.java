@@ -1,7 +1,6 @@
 package com.circuitapi;
 
 public class UnaryExpression extends Expression{
-
     private Operator operator;
 
     protected UnaryExpression(Operator operator) {
@@ -14,13 +13,15 @@ public class UnaryExpression extends Expression{
     }
 
     @Override
-    double getDValue() {
-        return getValue() ? 1.0 : 0.0;
+    double getDoubleValue() {
+        return 1.0-lhs.getDoubleValue() ;
     }
 
     @Override
     public void setValue(boolean value) {}
 
     @Override
-    void setValue(double value) {}
+    void setValue(double value) {
+
+    }
 }

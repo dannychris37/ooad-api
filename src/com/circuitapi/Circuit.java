@@ -1,5 +1,6 @@
 package com.circuitapi;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Circuit {
@@ -17,6 +18,10 @@ public class Circuit {
 
     public boolean getValue() {
         return root.getValue();
+    }
+    public double getDoubleValue() {
+
+        return root.getDoubleValue();
     }
 
     private Formula formCircuit(ArrayList<Formula> formulas) {

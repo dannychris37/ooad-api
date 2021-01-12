@@ -110,21 +110,62 @@ public class MainTest extends TestCase {
         x2.setValue(false);
         assertTrue(c.getValue());
     }
-    public void testetst() {
+    public void testX1andX2orNotX1() {
         ArrayList<Formula> formula = new ArrayList<>();
         AbstractFormulaBuilder formulaBuilder  = new DoubleFormulaBuilder();
         Formula x1=formulaBuilder.getFormula(Operator.OPERAND);
         Formula x2=formulaBuilder.getFormula(Operator.OPERAND);
+        formula.add(formulaBuilder.getFormula(Operator.OR));
         formula.add(formulaBuilder.getFormula(Operator.AND));
         formula.add(x1);
         formula.add(x2);
+        formula.add(formulaBuilder.getFormula(Operator.NOT));
+        formula.add(x1);
         Circuit c = new Circuit(formula);
-        x1.setValue(0.0);
-        x2.setValue(1.0);
+        x1.setValue(true);
+        x2.setValue(false);
+        assertFalse(c.getValue());
+        try {
+            x1.setValue(0.1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            x2.setValue(0.3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertEquals(c.getDoubleValue(),1.0,0.001);
+    }
+    public void testGreaterThanElement() {
+        ArrayList<Formula> formula = new ArrayList<>();
+        AbstractFormulaBuilder formulaBuilder  = new DoubleFormulaBuilder();
+        Formula x1=formulaBuilder.getFormula(Operator.OPERAND);
+        formula.add(formulaBuilder.getFormula(Operator.GTE));
+        formula.add(formulaBuilder.getFormula(Operator.AND));
+        formula.add(x1);
+        formula.add(formulaBuilder.getFormula(Operator.NOT));
+        formula.add(x1);
+        formula.add(x1);
+        Circuit c = new Circuit(formula);
+        try {
+            x1.setValue(0.5);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertEquals(c.getDoubleValue(),0.0);
-        x1.setValue(0.1);
-        x2.setValue(0.5);
-        assertEquals(c.getDoubleValue(),0.05);
+        try {
+            x1.setValue(1.0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertEquals(c.getDoubleValue(),0.0,0.001);
+        try {
+            x1.setValue(0.0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertEquals(c.getDoubleValue(),1.0,0.001);
     }
 
 }
