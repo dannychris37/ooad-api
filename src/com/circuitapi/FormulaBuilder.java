@@ -1,6 +1,7 @@
 package com.circuitapi;
 
-public class FormulaBuilder {
+public class FormulaBuilder extends AbstractFormulaBuilder {
+    @Override
     public Formula getFormula(Operator operator) {
         switch (operator) {
             case AND:

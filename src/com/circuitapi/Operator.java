@@ -4,5 +4,6 @@ public enum Operator {
     AND,
     OR,
     NOT,
-    OPERAND;
+    OPERAND,
+    GTE;
 }

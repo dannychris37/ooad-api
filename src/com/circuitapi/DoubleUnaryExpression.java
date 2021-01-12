@@ -1,26 +1,27 @@
 package com.circuitapi;
 
-public class UnaryExpression extends Expression{
-
+public class DoubleUnaryExpression extends Expression {
     private Operator operator;
 
-    protected UnaryExpression(Operator operator) {
+    protected DoubleUnaryExpression(Operator operator) {
         this.operator = operator;
     }
 
     @Override
     public boolean getValue() {
-        return !lhs.getValue();
+        return getDValue() > 0.0 ? true : false;
     }
 
     @Override
     double getDValue() {
-        return getValue() ? 1.0 : 0.0;
+        return 1 - lhs.getDValue();
     }
 
     @Override
     public void setValue(boolean value) {}
 
     @Override
-    void setValue(double value) {}
+    void setValue(double value) {
+
+    }
 }

@@ -20,5 +20,13 @@ public class BinaryExpression extends Expression{
     }
 
     @Override
+    double getDValue() {
+        return getValue() ? 1.0 : 0.0;
+    }
+
+    @Override
     public void setValue(boolean value) {}
+
+    @Override
+    void setValue(double value) {}
 }
