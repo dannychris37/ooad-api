@@ -110,5 +110,21 @@ public class MainTest extends TestCase {
         x2.setValue(false);
         assertTrue(c.getValue());
     }
+    public void testetst() {
+        ArrayList<Formula> formula = new ArrayList<>();
+        AbstractFormulaBuilder formulaBuilder  = new DoubleFormulaBuilder();
+        Formula x1=formulaBuilder.getFormula(Operator.OPERAND);
+        Formula x2=formulaBuilder.getFormula(Operator.OPERAND);
+        formula.add(formulaBuilder.getFormula(Operator.AND));
+        formula.add(x1);
+        formula.add(x2);
+        Circuit c = new Circuit(formula);
+        x1.setValue(0.0);
+        x2.setValue(1.0);
+        assertEquals(c.getDoubleValue(),0.0);
+        x1.setValue(0.1);
+        x2.setValue(0.5);
+        assertEquals(c.getDoubleValue(),0.05);
+    }
 
 }
